@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+int cnt=0;
+int saved[100];
+
+int fibo(int n)
+{
+
+
+    if(n==0)
+    {
+        return 0;
+    }
+     if(n==1)
+    {
+        return 1;
+    }
+    if(saved[n]!=0)
+    {
+        return saved[n];
+    }
+
+    int x=fibo(n-1);
+    cnt++;
+    int y=fibo(n-2);
+    cnt++;
+
+     saved[n]=x+y;
+
+    return x+y;
+}
+int main()
+{
+
+    int n;
+    cin>>n;
+
+   long long res= fibo(n);
+   
+   cout<<res<<endl;
+
+   cout<<cnt<<endl;
+}
